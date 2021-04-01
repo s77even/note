@@ -8,6 +8,44 @@ ETCD使用场景
 
 键值对存储 服务注册与发现 消息发布与订阅
 
+
+
+etcd 架构
+
+![image-20210318210827050](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210318210827050.png)
+
+boltdb kv模型的数据库，为不需要完整数据库服务器的项目提供一个简单可靠的数据库
+
+wal  预写式日志 用于持久化存储的日志格式
+
+snapshot 快照，存储etcd 数据
+
+raft 保证分布式系统强一致性
+
+grpc  为客户端提供可调用服务
+
+
+
+client的http调用和grpc调用：
+
+http调用：通过注册到http模块的处理方式法进行处理，将解析好的消息调用do方法进行处理。
+
+grpc调用：通过向grpc注册的quotakvserver，grpc解析消息后调用kvserver的方法，kvServer中包含有一个RaftKV的接口，由EtcdServer这个结构实现。所以最后就是调用到EtcdServer的Range、Put、DeleteRange、Txn、Compact等方法
+
+
+
+节点之间的grpc消息：每个EtcdServer中包含有Transport结构，Transport中会有一个peers的map，每个peer封装了节点到其他某个节点的通信方式。包括streamReader、streamWriter等，用于消息的发送和接收。streamReader中有recvc和propc队列，streamReader处理完接收到的消息会将消息推到这连个队列中。由peer去处理，peer调用raftNode的Process方法处理消息
+
+
+
+分布式一致性算法：（强一致性算法）
+
+Google的Chubby分布式锁服务，采用了**Paxos**算法
+
+raft
+
+ZooKeeper分布式应用协调服务，Chubby的开源实现，采用**ZAB**算法
+
 ### Raft算法 
 
 etcd使用raft算法来保证集群中的数据的一致性，raft协议简单且容易实现
@@ -65,7 +103,7 @@ raft的状态机结构简单，状态少，只有follower，candidate，leader
 
 (一致性检查)
 
-（每次 RPC 发送附加日志时，leader 会把这条日志条目的前面的日志的下标和任期号一起发送给 follower，如果 follower 发现和自己的日志不匹配，那么就拒绝接受这条日志，这个称之为一致性检查）
+（每次 RPC 发送附加日志时，leader 会把这条日志条目的前面的日志的下标和任期号一起发送给 follower，如果 follower 发现和自己的日志不匹配，那么就拒绝接受这条日志，这个称之为**一致性检查**）
 
 
 
