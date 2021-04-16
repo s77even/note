@@ -58,7 +58,7 @@ P/M 构成组合体，M的数量多于P 的数量，当M 因陷入系统调用�
 
 ##### GMP模型   G：goroutine M：thread P：processer处理器
 
-<img src="C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201219173840276.png" alt="image-20201219173840276" style="zoom: 80%;" />
+<img src="C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201219173840276.png" alt="image-20201219173840276" style="zoom: 80%;" />
 
 ​									全局队列：存放等待的G     
 
@@ -136,7 +136,7 @@ G2创建了多个G,本地队列已满，会先将本地队列中前一半的G打
 
 自旋线程 从全局队列到本地队列的负载均衡 
 
-从全局队列中获取G的个数![image-20201219221650091](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201219221650091.png)
+从全局队列中获取G的个数![image-20201219221650091](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201219221650091.png)
 
 ##### 场景6
 

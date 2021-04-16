@@ -14,7 +14,7 @@ v1.8 混合写屏障
 
 #### v1.3 标记清除法
 
-<img src="C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201218105036389.png" alt="image-20201218105036389" style="zoom:70%;" />
+<img src="C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201218105036389.png" alt="image-20201218105036389" style="zoom:70%;" />
 
 1、暂停业务逻辑（stw）
 
@@ -54,7 +54,7 @@ STW会让程序暂停，出现程序卡顿，影响了语言的性能（**）
 
 ###### 如果三色标记中无STW，会出现对象丢失的现象
 
-<img src="C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201218112428179.png" style="zoom:50%;" />
+<img src="C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201218112428179.png" style="zoom:50%;" />
 
 
 
@@ -106,7 +106,7 @@ STW会让程序暂停，出现程序卡顿，影响了语言的性能（**）
 
 对象被一个堆对象删除引用，称为一个栈对象的下游
 
-<img src="C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201218202121515.png" alt="image-20201218202121515" style="zoom:50%;" />
+<img src="C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201218202121515.png" alt="image-20201218202121515" style="zoom:50%;" />
 
 
 

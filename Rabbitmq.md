@@ -10,7 +10,7 @@
 
 amqp 高级消息队列协议
 
-![image-20210318165057896](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210318165057896.png)
+![image-20210318165057896](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210318165057896.png)
 
 Broker 接收和分发消息的应用 一个rabbitmq就是一个broker
 

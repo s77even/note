@@ -66,7 +66,7 @@ partition全局从第一个segement从0开始，后续每一个segement文件名
 
 20位数组字符长度，没有数字用0填充
 
-![image-20210316221800037](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210316221800037.png).
+![image-20210316221800037](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210316221800037.png).
 
 消息具有固定的物理结构，包括偏移小消息体大小校验等可以确定一条消息的大小，读到哪里截止
 

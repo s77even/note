@@ -56,6 +56,8 @@ fork的内存开销 写时复制 在fork时会共用父进程的内存 如果有
 
 fork 的阻塞  在内存不足的情况下， 申请fork子进程可能会造成阻塞
 
+
+
 #### 数据结构 string hash set zset list （bitmap hperloglog boolenfilter GEO  ）
 
 string：字符串的类型不能大于512MB，可用于缓存，计数器，分布式锁，分布式id生成器（自增操作原子性）底层实现简单动态字符串

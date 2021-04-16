@@ -20,7 +20,7 @@ info replication 查看redis主从复制状态
 
 **全量复制**  首先将本身的rdb文件同步给slave，在同步过程中的新增数据单独记录 通过之后的偏移量对比 将新的数据同步给slave
 
-![image-20210302200611835](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210302200611835.png)
+![image-20210302200611835](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210302200611835.png)
 
 首先第一次要求主从复制  由于不知道主节点runid 和偏移地址  会发送psync ？ -1
 
@@ -36,7 +36,7 @@ info replication 查看redis主从复制状态
 
 **部分复制**  针对在全量复制中因网络连接断开而丢失的数据
 
-![image-20210302201322834](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210302201322834.png)
+![image-20210302201322834](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210302201322834.png)
 
 同步过程中 网络断开，断开这期间的数据记录都会丢失，从节点重新连接到主节点，会发送psync加上自己的偏移量，
 
@@ -150,7 +150,7 @@ sentin failover-timeout mymaster  18000 故障转移时间
 
 分布式数据库：数据分区 （顺序分区 哈希分区）
 
-![image-20210303093924586](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210303093924586.png)
+![image-20210303093924586](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210303093924586.png)
 
 
 
@@ -164,7 +164,7 @@ sentin failover-timeout mymaster  18000 故障转移时间
 
 **虚拟槽分区**  预设虚拟槽 每个槽映射一个数据子集 槽一般比节点数大 良好的哈希函数（CRC16） 
 
-![image-20210303095355577](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210303095355577.png)
+![image-20210303095355577](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210303095355577.png)
 
 
 
@@ -236,13 +236,13 @@ cluster replicate node-id
 
 redis-cli --cluster reshard 127.0.0.1:7000
 
-![image-20210303111632598](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210303111632598.png)
+![image-20210303111632598](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210303111632598.png)
 
 要求分配4096个槽给port7006 的id   并且使用all或者指定nodeid
 
 会从指定槽或全部槽中 分配一部分给新增的节点
 
-![image-20210303111921076](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210303111921076.png)
+![image-20210303111921076](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210303111921076.png)
 
 
 
@@ -264,7 +264,7 @@ redis-cli --cluster del-node ip：port nodeid   指定ip端口的忘记指定nod
 
 先下线主节点 后下线从节点   **先下线主节点会触发从节点的故障转移**
 
-![image-20210303113732625](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210303113732625.png)
+![image-20210303113732625](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210303113732625.png)
 
 使用delnode忘记节点同时会关闭节点
 
@@ -272,9 +272,9 @@ redis-cli --cluster del-node ip：port nodeid   指定ip端口的忘记指定nod
 
 **客户端路由**
 
-![image-20210303142907469](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210303142907469.png)
+![image-20210303142907469](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210303142907469.png)
 
-![image-20210303143043021](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210303143043021.png)
+![image-20210303143043021](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210303143043021.png)
 
 
 

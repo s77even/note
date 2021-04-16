@@ -96,11 +96,11 @@ gorm内置了一个gorm.Model结构体，包含了ID, CreatedAt(创建时间),Up
 
 使用结构体声明模型时，可给字段增加标记
 
-`gorm:""`![image-20201222164534606](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201222164534606.png)
+`gorm:""`![image-20201222164534606](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201222164534606.png)
 
 gorm支持以下标记
 
-![image-20201222164548069](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201222164548069.png)
+![image-20201222164548069](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201222164548069.png)
 
 
 

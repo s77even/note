@@ -10,7 +10,7 @@ dictentry 实际的数据结构， 包括key val  next ，next用来解决哈希
 
 val指针又指向一个redisobj结构，保存了数据的值和type，enconding方式。lru等
 
-![image-20210317161106944](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210317161106944.png)
+![image-20210317161106944](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210317161106944.png)
 
 
 
@@ -38,7 +38,7 @@ embstr对象实际上是**只读的**，如果该编码的**字符串长度增�
 
 3.2之前  
 
-<img src="C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210317164150194.png" alt="image-20210317164150194" style="zoom: 80%;" />
+<img src="C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210317164150194.png" alt="image-20210317164150194" style="zoom: 80%;" />
 
 3.2 之后 做了优化，针对更小的对象存储造成的不必要的空间消耗，提出了5 8 16 32 64sdshdr
 

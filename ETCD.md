@@ -12,7 +12,7 @@ ETCD使用场景
 
 etcd 架构
 
-![image-20210318210827050](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20210318210827050.png)
+![image-20210318210827050](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20210318210827050.png)
 
 boltdb kv模型的数据库，为不需要完整数据库服务器的项目提供一个简单可靠的数据库
 
@@ -60,7 +60,7 @@ Quorum机制
 
 raft状态机
 
-<img src="C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201209220919360.png" alt="image-20201209220919360" style="zoom:50%;" />
+<img src="C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201209220919360.png" alt="image-20201209220919360" style="zoom:50%;" />
 
 raft的状态机结构简单，状态少，只有follower，candidate，leader
 
@@ -93,7 +93,7 @@ raft的状态机结构简单，状态少，只有follower，candidate，leader
 
 日志结构
 
-![image-20201210112856911](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201210112856911.png)
+![image-20201210112856911](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201210112856911.png)
 
 ###### 日志的特性
 
@@ -115,7 +115,7 @@ raft的状态机结构简单，状态少，只有follower，candidate，leader
 
 正常情况下 leader和follower的日志进度满足一致性检查，即上条已提交的index和任期匹配，日志不一致可能出现跟随者可能丢失记录，跟随者可能有不同的记录，需要做的是剔除所有不同的日志记录，并将所有丢失的记录根据领导者的日志填充完整
 
-![image-20201210155107035](C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201210155107035.png)
+![image-20201210155107035](C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201210155107035.png)
 
 
 
@@ -173,7 +173,7 @@ main->etcdmain.Main()->1,checkSupportArch 2,判断是否通过命令行传入配
 
 etcd使用了很多channel 
 
-大部分使用了无缓冲channel  并且逻辑比较简单 如阻塞等待通知 <img src="C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201209165454869.png" alt="image-20201209165454869" style="zoom: 80%;" />
+大部分使用了无缓冲channel  并且逻辑比较简单 如阻塞等待通知 <img src="C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201209165454869.png" alt="image-20201209165454869" style="zoom: 80%;" />
 
 防止了channel使用逻辑复杂而造成channel频繁阻塞带来性能的影响
 
@@ -191,7 +191,7 @@ etcd使用了很多channel
 
 etcd中只有一个定时器的实现 但是实现了两种逻辑的管理 利用节点不同的类型回调不同的tick回调函数完成不同的逻辑
 
-<img src="C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201211111144436.png" alt="image-20201211111144436" style="zoom:70%;" /><img src="C:\Users\wwwwwwl\AppData\Roaming\Typora\typora-user-images\image-20201211111238785.png" alt="image-20201211111238785" style="zoom:67%;" />
+<img src="C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201211111144436.png" alt="image-20201211111144436" style="zoom:70%;" /><img src="C:\Users\seven\AppData\Roaming\Typora\typora-user-images\image-20201211111238785.png" alt="image-20201211111238785" style="zoom:67%;" />
 
 
 
